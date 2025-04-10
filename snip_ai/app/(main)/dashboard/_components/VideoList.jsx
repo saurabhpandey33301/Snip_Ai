@@ -55,28 +55,32 @@ export default function VideoList() {
       ) : (
         <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 mt-10 gap-5 ">
           {videoList?.map((video, index) => (
-            <div key={index} className="relative">
-              {video?.status == "completed" ? (
-                <Image
-                  src={video?.images[0]}
-                  alt={video?.title}
-                  width={500}
-                  height={500}
-                  className="w-full object-cover aspect-[2/3] rounded-xl "
-                />
-              ) : (
-                <div className="aspect-[2/3] p-5 w-full rounded-xl border flex justify-center items-center gap-2 bg-slate-900">
-                  <RefreshCcw className="animate-spin" />
-                  <h2>Generating....</h2>
+            <Link href={`/play-video/` + video?._id} key={index}>
+              <div className="relative hover:border-2 rounded-xl border-white">
+                {video?.status == "completed" ? (
+                  <Image
+                    src={video?.images[0]}
+                    alt={video?.title}
+                    width={500}
+                    height={500}
+                    className="w-full object-cover aspect-[2/3] rounded-xl "
+                  />
+                ) : (
+                  <div className="aspect-[2/3] p-5 w-full rounded-xl border flex justify-center items-center gap-2 bg-slate-900">
+                    <RefreshCcw className="animate-spin" />
+                    <h2>Generating....</h2>
+                  </div>
+                )}
+                <div className="absolute bottom-3 px-5 w-full">
+                  <h2 className="text-lg font-bold text-white">
+                    {video?.title}
+                  </h2>
+                  <h2 className="text-sm text-white">
+                    {moment(video?._creationTime).fromNow()}
+                  </h2>
                 </div>
-              )}
-              <div className="absolute bottom-3 px-5 w-full">
-                <h2 className="text-lg font-bold text-white">{video?.title}</h2>
-                <h2 className="text-sm text-white">
-                  {moment(video?._creationTime).fromNow()}
-                </h2>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       )}
