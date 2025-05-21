@@ -1,10 +1,18 @@
 "use client";
 import { Button } from "../../components/ui/button";
 import Image from "next/image";
-import React  from "react";
+import React from "react";
 import Authentication from "./Authentication";
 import { useAuthContext } from "../provider";
 import Link from "next/link";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "../../@/components/ui/dropdown-menu";
 
 
 function Header() {
@@ -23,18 +31,31 @@ function Header() {
           </Authentication>
         ) : (
           <div className="flex gap-4 ">
-             <Link href={'/dashboard'} ><Button size={"lg"} >Dashboard</Button></Link>
-             
-             <div className="rounded-full hover:scale-110 transition-transform duration-200">
-            <Image
-              src={user?.pictureURL}
-              alt="userImg"
-              width={40}
-              height={40}
-              className="rounded-full"
-            ></Image>
+            {/* <Link href={"/dashboard"}>
+              <Button size={"lg"}>Dashboard</Button>
+            </Link> */}
 
-             </div>
+            <div className="rounded-full hover:scale-110 transition-transform duration-200">
+              <DropdownMenu>
+                <DropdownMenuTrigger>
+                  <Image
+                    src={user?.pictureURL}
+                    alt="userImg"
+                    width={40}
+                    height={40}
+                    className="rounded-full cursor-pointer"
+                  ></Image>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent className={"m-2"}>
+                  <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem>
+                    <Link href={"/dashboard"}>Dashboard</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>SignOut</DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
           </div>
         )}
       </div>
