@@ -19,7 +19,7 @@ function Header() {
   const { user } = useAuthContext();
 
   return (
-    <div className="p-4 flex justify-between items-center">
+    <div className="p-4 px-4 lg:px-10  flex justify-between items-center ">
       <div className="flex items-center gap-3">
         <Image src={"/logo.svg"} alt="logo" width={30} height={30} />
         <h1 className="text-3xl font-bold">SnipAi</h1>
@@ -30,7 +30,7 @@ function Header() {
             <Button>Get Started</Button>
           </Authentication>
         ) : (
-          <div className="flex gap-4 ">
+          <div className="flex  ">
             {/* <Link href={"/dashboard"}>
               <Button size={"lg"}>Dashboard</Button>
             </Link> */}
