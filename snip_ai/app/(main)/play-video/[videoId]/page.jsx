@@ -16,12 +16,13 @@ export default function PlayVideo() {
     useEffect(()=>{
         videoId && GetVideoDataById();
     },[videoId])
+
     const GetVideoDataById = async()=>{
         const result  = await convex.query(api.videoData.GetVideoById,{
             videoId:videoId
 
         });
-        console.log(result);
+        //console.log(result);
         setVidoeData(result);
         
     }

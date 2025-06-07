@@ -12,9 +12,28 @@ import {
   DropdownMenuTrigger,
 } from "../../../@/components/ui/dropdown-menu";
 import Link from "next/link";
+import { signOut } from "firebase/auth"; // <-- import signOut
+import { auth } from "../../configs/firebaseconfig"; // <-- import auth
+import { toast } from "react-toastify";
 
 export default function AppHeader() {
   const { user } = useAuthContext();
+
+  const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("User signed out");
+        toast.success("signin out successfully");
+        setTimeout(() => {
+          window.location.href = "/";
+        }, 1000); // wait 1 second so toast can show
+        // If your provider listens to onAuthStateChanged, this will auto-update the UI
+      })
+      .catch((error) => {
+        console.error("Sign out error:", error);
+      });
+  };
+
   return (
     <div className=" flex justify-between min-w-full items-center ">
       <SidebarTrigger />
@@ -29,18 +48,20 @@ export default function AppHeader() {
               className={"rounded-full cursor-pointer"}
             />
           </DropdownMenuTrigger>
-          <DropdownMenuContent className={"m-3"} >
+          <DropdownMenuContent className={"m-3"}>
             <DropdownMenuLabel>My Account</DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <Link href={"/"} > Home
-              </Link>
+              <Link href={"/"}> Home</Link>
             </DropdownMenuItem>
-            <DropdownMenuItem>SignOut</DropdownMenuItem>
-            
+            <DropdownMenuItem
+              onClick={handleSignOut}
+              className={"cursor-pointer"}
+            >
+              SignOut
+            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-
       </div>
     </div>
   );

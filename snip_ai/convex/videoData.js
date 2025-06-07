@@ -67,6 +67,20 @@ export const GetUserVideos = query({
     }
 })
 
+export const GetOtherUserVideos = query({
+    args: {
+        uid: v.id('users')
+    },
+    handler: async (ctx, args) => {
+        const result = await ctx.db.query('videoData')
+            .filter(q => q.neq(q.field('uid'), args.uid))
+            .order('desc')
+            .collect();
+
+        return result;
+    }
+});
+
 
 export const GetVideoById = query({
    args:{

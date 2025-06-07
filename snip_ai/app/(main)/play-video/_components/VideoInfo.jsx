@@ -1,4 +1,4 @@
-import { ArrowBigLeft, ArrowLeft, DownloadIcon } from 'lucide-react'
+import {ArrowLeft, DownloadIcon } from 'lucide-react'
 import React from 'react'
 import { Button } from '../../../../components/ui/button'
 import Link from 'next/link'
@@ -23,7 +23,9 @@ export default function VideoInfo({videoData}) {
         </div>
         <h2 className=' flex gap-2' ><p>Video Style : </p>
         <p className='text-gray-500  text-center items'>{videoData?.videoStyle}</p></h2>
-        <Button size={'sm'} className={'w-full cursor-pointer mt-2 '} > <DownloadIcon/> Export & Download</Button>
+        <Button size={'sm'} className={'w-full cursor-pointer mt-2 '} 
+          
+        > <DownloadIcon/> Export & Download</Button>
     </div>
   )
 }

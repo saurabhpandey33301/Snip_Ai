@@ -26,9 +26,9 @@ function Authentication({children}) {
       const email = error.customData.email;
       // The AuthCredential type that was used.
       const credential = GoogleAuthProvider.credentialFromError(error);
-      
     });
   }
+
   return (
     <div onClick={onSigninClick}>{children}</div>
 

@@ -92,7 +92,7 @@ function AppSidebar() {
                 <Gem/>
                  <h2 className="text-gray-300">{user?.credits} credits Left</h2>
              </div>
-             <Button className={"w-full mt-4"}>Buy More Credits</Button>
+             <Link href={'/billing'}><Button className={"w-full mt-4"}>Buy More Credits</Button></Link>
           </div>
       </SidebarFooter>
     </Sidebar>

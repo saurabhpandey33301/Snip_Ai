@@ -5,54 +5,48 @@ import { motion } from "framer-motion";
 export default function Faq() {
   const accordionItems = [
     {
-      title: "This template is Free?",
+      title: "Is this website site free ?",
       content: (
-        <div className="text-muted-foreground">
-          Yes, this template is free. You can use it for personal or commercial
-          purposes.
+        <div className="text-gray-200 text-md">
+          " Yes — this website is absolutely free! 🎉 Enjoy 3 complimentary
+          credits instantly upon your first login. Dive in and start exploring
+          today!"
         </div>
       ),
     },
     {
-      title: "There are more templates?",
+      title: "How to get more credits ?",
       content: (
-        <div className="text-muted-foreground">
-          Yes, there are more templates available. You can find them here:{" "}
-          <a
-            href="https://x.com/gonzalochale"
-            target="_blank"
-            rel="noreferrer"
-            className="text-primary underline"
-          >
-            gonzalochale.dev
-          </a>
+        <div className="text-gray-200 text-md">
+          "Unlock more credits by visiting the Billing section. Simply pay a
+          minimal fee through our secure, integrated Razorpay system and enjoy
+          uninterrupted access!"
         </div>
       ),
     },
     {
-      title: "How can I use this template?",
+      title: "How can I Create Short Videos ?",
       content: (
-        <div className="text-muted-foreground">
-          You can use this template by cloning it from{" "}
+        <div className="text-gray-200 text-md">
+          "Easily create stunning short videos in the Create New Video section
+          after logging in — just 1 credit per video!"
+        </div>
+      ),
+    },
+    {
+      title: "Is this website give any technical support ?",
+      content: (
+        <div className="text-gray-200 text-md">
+          Yes, we offer 24/7 technical support .Feel free to reach out to us at{" "}
           <a
-            href="https://github.com/gonzalochale/nextui-saas-landing-template"
-            className="text-primary underline"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=spandey3301@gmail.com&su=Support%20Request&body=Hi%20Team%2C%0A%0AI%20am%20facing%20the%20following%20issue%3A%20%0A%0A%5BPlease%20describe%20your%20issue%20here%5D%0A%0ARegards%2C%0A%5BYour%20Name%5D"
             target="_blank"
-            rel="noreferrer"
+            rel="noopener noreferrer"
+            className="text-blue-400 underline"
           >
-            GitHub
+            spandey3301@gmail.com
           </a>
           .
-        </div>
-      ),
-    },
-    {
-      title: "How can I contribute to this template?",
-      content: (
-        <div className="text-muted-foreground">
-          You can contribute to this template by forking it on GitHub and
-          submitting a pull request. You can also report any issues or bugs you
-          encounter while using the template.
         </div>
       ),
     },

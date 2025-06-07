@@ -64,7 +64,6 @@ export default function Home() {
 
          </div>
       </section>
-
       <footer className="footer w-full">
         <Footer />
       </footer>

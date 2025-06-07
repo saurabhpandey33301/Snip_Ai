@@ -5,6 +5,8 @@ import React from "react";
 import Authentication from "./Authentication";
 import { useAuthContext } from "../provider";
 import Link from "next/link";
+import { signOut } from "firebase/auth"; // <-- import signOut
+import { auth } from "../configs/firebaseconfig"; // <-- import auth
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -13,10 +15,25 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../../@/components/ui/dropdown-menu";
+import { redirect } from "next/navigation";
+import { toast } from "react-toastify";
 
 
 function Header() {
   const { user } = useAuthContext();
+
+   const handleSignOut = () => {
+    signOut(auth)
+      .then(() => {
+        console.log("User signed out");
+        toast.success("signin out successfully");
+        window.location.href = "/";
+        // If your provider listens to onAuthStateChanged, this will auto-update the UI
+      })
+      .catch((error) => {
+        console.error("Sign out error:", error);
+      });
+  };
 
   return (
     <div className="p-4 px-4 lg:px-10  flex justify-between items-center ">
@@ -31,10 +48,6 @@ function Header() {
           </Authentication>
         ) : (
           <div className="flex  ">
-            {/* <Link href={"/dashboard"}>
-              <Button size={"lg"}>Dashboard</Button>
-            </Link> */}
-
             <div className="rounded-full hover:scale-110 transition-transform duration-200">
               <DropdownMenu>
                 <DropdownMenuTrigger>
@@ -52,7 +65,7 @@ function Header() {
                   <DropdownMenuItem>
                     <Link href={"/dashboard"}>Dashboard</Link>
                   </DropdownMenuItem>
-                  <DropdownMenuItem>SignOut</DropdownMenuItem>
+                  <DropdownMenuItem onClick={handleSignOut} className={'cursor-pointer'} >SignOut</DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
