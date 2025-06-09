@@ -228,7 +228,7 @@ export default function TechStack() {
   return (
     <div className="min-w-full flex flex-col justify-center items-center">
       <AnimatedShinyTextDemo />
-      <div className="flex flex-col lg:flex-row justify-center items-center lg:justify-between min-w-full ">
+      <div className="flex flex-col lg:flex-row justify-center items-center lg:justify-between min-w-full lg:px-25">
         <div className=" w-50 h-50 lg:w-100 lg:h-100 lg:transform lg:translate-x-40">
           <PersonIcon />
         </div>

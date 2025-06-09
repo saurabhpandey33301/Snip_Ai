@@ -18,7 +18,9 @@ export default function VideoList() {
     user && GetUserVideoList();
   }, [user]);
   const GetUserVideoList = async () => {
-    const result = await convex.query(api.videoData.GetOtherUserVideos, { uid: user?._id });
+    const result = await convex.query(api.videoData.GetOtherUserVideos, {
+      uid: user?._id,
+    });
     setVideoList(result);
     const isPendingVideo = result?.find((item) => item.status == "pending");
     isPendingVideo && GetPendingVideoStatus(isPendingVideo);
@@ -52,28 +54,15 @@ export default function VideoList() {
           {videoList?.map((video, index) => (
             <Link href={`/play-video/` + video?._id} key={index}>
               <div className="relative hover:border-2 rounded-xl border-white">
-                {video?.status == "completed" ? (
+                {video?.status === "completed" && video?.images?.[0] && (
                   <Image
-                    src={video?.images[0]}
-                    alt={video?.title}
+                    src={video.images[0]}
+                    alt={video?.title || ""}
                     width={500}
                     height={500}
-                    className="w-full object-cover aspect-[2/3] rounded-xl "
+                    className="w-full object-cover aspect-[2/3] rounded-xl"
                   />
-                ) : (
-                  <div className="aspect-[2/3] p-5 w-full rounded-xl border flex justify-center items-center gap-2 bg-slate-900">
-                    <RefreshCcw className="animate-spin" />
-                    <h2>Generating....</h2>
-                  </div>
                 )}
-                <div className="absolute bottom-3 px-5 w-full">
-                  <h2 className="text-lg font-bold text-white">
-                    {video?.title}
-                  </h2>
-                  <h2 className="text-sm text-white">
-                    {moment(video?._creationTime).fromNow()}
-                  </h2>
-                </div>
               </div>
             </Link>
           ))}

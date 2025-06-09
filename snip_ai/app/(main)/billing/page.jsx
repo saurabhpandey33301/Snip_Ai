@@ -65,13 +65,13 @@ function Billing() {
          src='https://checkout.razorpay.com/v1/checkout.js'
       />
       <h2 className="font-bold text-3xl">Credits</h2>
-      <div className='border p-3 flex justify-between rounded-xl' > 
+      <div className='border p-3 flex justify-between rounded-xl gap-2' > 
                <div>
-                  <h2 className='text-2xl font-bold' >Total Credits Left</h2>
+                  <h2 className='text-lg lg:text-2xl font-bold' >Total Credits Left</h2>
                   <h2 className='text-sm'>1 credit = 1 video</h2>
                </div>
                <div> 
-                  <h2 className='text-3xl font-bold flex gap-2 justify-center items-center' ><BadgeIndianRupee size={32} color="#08e20c" strokeWidth={2.25} /><span>{user?.credits} Credits</span></h2>
+                  <h2 className=' text-lg lg:text-3xl font-bold flex gap-2 justify-center items-center' ><BadgeIndianRupee size={32} color="#08e20c" strokeWidth={2.25} /><span>{user?.credits} Credits</span></h2>
                </div>
       </div>
       <div className='text-gray-500 text-sm'>

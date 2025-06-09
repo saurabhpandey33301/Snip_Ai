@@ -72,7 +72,7 @@ export default function VideoList() {
                   </div>
                 )}
                 <div className="absolute bottom-3 px-5 w-full">
-                  <h2 className="text-lg font-bold text-white">
+                  <h2 className=" text-md lg:text-lg font-bold text-white">
                     {video?.title}
                   </h2>
                   <h2 className="text-sm text-white">

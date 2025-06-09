@@ -49,7 +49,7 @@ function Voice({onHandleInputChange}) {
             onHandleInputChange("voice",voiceOption.value)
         }} 
         key={index}
-          className={`cursor-pointer p-2 dark:bg-slate-800 border-2  rounded-lg ${selectedVoice==voiceOption.name ? 'border-blue-400':'border-slate-600 hover:border-white' }`}>
+          className={`cursor-pointer text-sm lg:text-lg p-2 dark:bg-slate-800 border-2  rounded-lg ${selectedVoice==voiceOption.name ? 'border-blue-400':'border-slate-600 hover:border-white' }`}>
              
             {voiceOption.name}
           </h2>

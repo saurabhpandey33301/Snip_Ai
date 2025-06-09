@@ -3,6 +3,29 @@
 
 @custom-variant dark (&:is(.dark *));
 
+
+.my-element {
+    width: 70vw;
+    height: 25vh;
+}
+
+/* Example: apply different styles on small screens */
+@media (max-width: 600px) {
+    .my-element {
+        width: 90vw;
+        height: 20vh;
+    }
+}
+
+/* Example: apply different styles on large screens */
+@media (min-width: 1200px) {
+    .my-element {
+        width: 50vw;
+        height: 30vh;
+    }
+}
+
+
 @layer base {
   :root {
     --sidebar-background: 0 0% 98%;
