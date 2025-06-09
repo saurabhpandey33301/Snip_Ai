@@ -13,6 +13,7 @@ import { useMutation } from "convex/react";
 import { api } from "../../../convex/_generated/api";
 import { useAuthContext } from "../../provider";
 import { toast } from 'react-toastify';
+import { useRouter } from 'next/navigation';
 
 
 function CreateNewVideo() {
@@ -20,12 +21,14 @@ function CreateNewVideo() {
   const CreateInitialVideoRecord = useMutation(api.videoData.CreateVideoData);
   const [loading,setLoading] = useState(false);
   const {user} = useAuthContext();
+  const router = useRouter()
+  
   const onHandleInputChange = (feildName, feildValue) => {
     setFormData((prev) => ({ ...prev, [feildName]: feildValue }));
     console.log("formData", formData);
   };
   const GenerateVideo = async() => {
-
+    
     if(user?.credits<=0){
        toast.dark("Please add more credits!")
        return;
@@ -64,7 +67,9 @@ function CreateNewVideo() {
       
     })
     console.log(result);
+    toast.success("video generated successfully");
     setLoading(false)
+    router.push("/dashboard");
     
   };
   return (

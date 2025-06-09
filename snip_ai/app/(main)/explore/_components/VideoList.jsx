@@ -63,6 +63,14 @@ export default function VideoList() {
                     className="w-full object-cover aspect-[2/3] rounded-xl"
                   />
                 )}
+                <div className="absolute bottom-3 px-5 w-full">
+                  <h2 className=" text-md lg:text-lg font-bold text-white">
+                    {video?.title}
+                  </h2>
+                  <h2 className="text-sm text-white">
+                    {moment(video?._creationTime).fromNow()}
+                  </h2>
+                </div>
               </div>
             </Link>
           ))}
