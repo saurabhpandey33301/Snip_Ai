@@ -27,7 +27,7 @@ export default function AppHeader() {
         setTimeout(() => {
           window.location.href = "/";
         }, 1000); // wait 1 second so toast can show
-        // If your provider listens to onAuthStateChanged, this will auto-update the UI
+        
       })
       .catch((error) => {
         console.error("Sign out error:", error);

@@ -27,8 +27,10 @@ function Header() {
       .then(() => {
         console.log("User signed out");
         toast.success("signin out successfully");
-        window.location.href = "/";
-        // If your provider listens to onAuthStateChanged, this will auto-update the UI
+       setTimeout(() => {
+          window.location.href = "/";
+        }, 1000);
+       
       })
       .catch((error) => {
         console.error("Sign out error:", error);
