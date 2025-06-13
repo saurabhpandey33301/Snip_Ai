@@ -20,7 +20,7 @@ export function HeroVideoDialogDemo() {
       <HeroVideoDialog
         className="md:max-w-5xl w-[90%] mx-auto"
         animationStyle="from-bottom"
-        videoSrc="https://www.youtube.com/embed/kJQP7kiw5Fk?si=OpcADRBuSFMQ92wC"
+        videoSrc="https://www.youtube.com/embed/T64ffGLS69A?si=2JkxFAAsdAfIf3Av"
         thumbnailSrc="video.png"
         thumbnailAlt="Hero Video"
       />
